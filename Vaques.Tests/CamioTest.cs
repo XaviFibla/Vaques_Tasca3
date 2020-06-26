@@ -42,5 +42,20 @@ namespace Vaques.Tests
             //assert
             Assert.False(entra);
         }
+
+        [Fact]
+        public void Treure_vaca()
+        {
+            // arrange
+            var vaca = new Mock<Vaca>("Wapa",200.0, null);
+            var camio = new Camio(1000);
+
+            //act
+            var treure = camio.TreureVaca(vaca.Object);
+
+            //assert
+            Assert.True(treure);
+        }
+
     }
 }
