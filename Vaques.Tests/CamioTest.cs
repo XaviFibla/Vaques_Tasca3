@@ -51,6 +51,7 @@ namespace Vaques.Tests
             var camio = new Camio(1000);
 
             //act
+            camio.EntraVaca(vaca.Object);
             var treure = camio.TreureVaca(vaca.Object);
 
             //assert

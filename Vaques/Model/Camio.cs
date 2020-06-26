@@ -22,5 +22,10 @@ namespace Vaques.Model
             Vaques.Add(vaca);
             return true;
         }
+
+        public bool TreureVaca(Vaca vaca)
+        {            
+            return Vaques.Remove(vaca); 
+        }
     }
 }
