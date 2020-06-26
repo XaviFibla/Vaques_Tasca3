@@ -17,7 +17,7 @@ namespace Vaques.Tests
             var vaca = new Mock<Vaca>("No importa", 0,null);
             vaca.Setup(r => r.Pes).Returns(pes);
 
-            var camio = new Camio();
+            var camio = new Camio(4000);
 
             //act
             var entra = camio.EntraVaca(vaca.Object);
@@ -34,7 +34,7 @@ namespace Vaques.Tests
             var vaca = new Mock<Vaca>("No importa", 0, null);
             vaca.Setup(r => r.Pes).Returns(pes);
 
-            var camio = new Camio();
+            var camio = new Camio(100);
 
             //act
             var entra = camio.EntraVaca(vaca.Object);
