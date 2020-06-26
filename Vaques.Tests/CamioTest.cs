@@ -14,15 +14,16 @@ namespace Vaques.Tests
         public void EntrarVaca(double pes)
         {
             // arrange
-            var vaca = new Mock<Vaca>();
+            var vaca = new Mock<Vaca>("No importa", 0,null);
             vaca.Setup(r => r.Pes).Returns(pes);
 
             var camio = new Camio();
 
             //act
+            var entra = camio.EntraVaca(vaca.Object);
 
             //assert
-            Assert.True(camio.EntraVaca(vaca));
+            Assert.True(entra);
         }
     }
 }

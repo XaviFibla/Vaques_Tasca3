@@ -14,7 +14,7 @@ namespace Vaques.Model
         }
 
         public string Nom { get; set; }
-        public double Pes { get; set; }
+        public virtual double Pes { get; set; }
 
         public Raca Raca { get; }
 
