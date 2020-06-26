@@ -11,7 +11,7 @@ namespace Vaques.Tests
         [InlineData(400.0)]
         [InlineData(340.0)]
         [InlineData(365.0)]
-        public void EntrarVaca(double pes)
+        public void Entrar_Vaca(double pes)
         {
             // arrange
             var vaca = new Mock<Vaca>("No importa", 0,null);
@@ -24,6 +24,23 @@ namespace Vaques.Tests
 
             //assert
             Assert.True(entra);
+        }
+
+        [Theory]
+        [InlineData(400.0)]     
+        public void No_Entrar_Vaca(double pes)
+        {
+            // arrange
+            var vaca = new Mock<Vaca>("No importa", 0, null);
+            vaca.Setup(r => r.Pes).Returns(pes);
+
+            var camio = new Camio();
+
+            //act
+            var entra = camio.EntraVaca(vaca.Object);
+
+            //assert
+            Assert.False(entra);
         }
     }
 }
