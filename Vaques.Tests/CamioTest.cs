@@ -58,5 +58,26 @@ namespace Vaques.Tests
             Assert.True(treure);
         }
 
+        [Fact]
+        public void Control_Pes_Maxim_No_Entra()
+        {
+            // arrange
+            var vaca_1 = new Mock<Vaca>("Vaca 1", 200, null);
+            vaca_1.Setup(r => r.Pes).Returns(200);
+            var vaca_2 = new Mock<Vaca>("Vaca 2", 300, null);
+            vaca_2.Setup(r => r.Pes).Returns(300);
+            var vaca_3 = new Mock<Vaca>("Vaca 3", 300, null);
+            vaca_3.Setup(r => r.Pes).Returns(300);
+
+            var camio = new Camio(500);
+
+            //act
+            var entra = camio.EntraVaca(vaca_1.Object);
+            entra = camio.EntraVaca(vaca_2.Object);
+            entra = camio.EntraVaca(vaca_3.Object);
+            //assert
+            Assert.False(entra);
+        }
+
     }
 }
