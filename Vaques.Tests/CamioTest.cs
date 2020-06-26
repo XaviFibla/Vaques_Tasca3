@@ -131,13 +131,36 @@ namespace Vaques.Tests
             var raca = new Mock<Raca>("Vaca lola", 0);
             raca.Setup(r => r.LitresPerKg).Returns(litres);
 
-            var sut = new Vaca("Vaca", pes, raca.Object);
+            var vaca = new Vaca("Vaca", pes, raca.Object);
 
             //act
-            var resultat = sut.GetLitres();
+            var resultat = vaca.GetLitres();
 
             //assert
             Assert.Equal(pes * litres, resultat);
+        }
+
+        [Fact]
+        public void Calcular_Litres_Camio()
+        {
+            // arrange
+            var raca = new Mock<Raca>("Vaca lola", 0);
+            raca.Setup(r => r.LitresPerKg).Returns(200);
+            var vaca_1 = new Mock<Vaca>("Vaca 1", 200, raca);
+            vaca_1.Setup(r => r.Pes).Returns(200);
+            var vaca_2 = new Mock<Vaca>("Vaca 2", 300, raca);
+            vaca_2.Setup(r => r.Pes).Returns(300);
+            var totalLitres = vaca_1.Object.GetLitres() + vaca_2.Object.GetLitres();
+
+            var camio = new Camio(500);
+
+            //act
+            camio.EntraVaca(vaca_1.Object);
+            camio.EntraVaca(vaca_2.Object);
+
+           var resultat =  camio.GetLitres();
+            //assert
+            Assert.True(totalLitres, resultat);
         }
     }
 }
