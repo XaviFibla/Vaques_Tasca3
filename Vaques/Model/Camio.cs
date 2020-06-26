@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Vaques.Model
@@ -30,6 +31,11 @@ namespace Vaques.Model
                 return true;
             }
             return false;
+        }
+
+        public double GetLitres()
+        {
+            return Vaques.Sum(r => r.GetLitres());
         }
     }
 }
