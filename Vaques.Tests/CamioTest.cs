@@ -121,5 +121,23 @@ namespace Vaques.Tests
             //assert
             Assert.True(entra);
         }
+
+        [Theory]
+        [InlineData(200, 12)]
+        [InlineData(100, 10)]
+        public void Calcular_Litres_Vaca(double pes, double litres)
+        {
+            // arrange
+            var raca = new Mock<Raca>("Vaca lola", 0);
+            raca.Setup(r => r.LitresPerKg).Returns(litres);
+
+            var sut = new Vaca("Vaca", pes, raca.Object);
+
+            //act
+            var resultat = sut.GetLitres();
+
+            //assert
+            Assert.Equal(pes * litres, resultat);
+        }
     }
 }
