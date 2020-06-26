@@ -24,8 +24,12 @@ namespace Vaques.Model
         }
 
         public bool TreureVaca(Vaca vaca)
-        {            
-            return Vaques.Remove(vaca); 
+        {
+            if (Vaques.Remove(vaca)) {
+                Pes -= vaca.Pes;
+                return true;
+            }
+            return false;
         }
     }
 }
