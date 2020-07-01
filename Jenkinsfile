@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo "Compilant..."
                 dir("Vaques.Tests") {
-                    sh "dotnet.exe build"
+                    bat "dotnet build"
                 }
             }
         }
@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo "Testing..."                
                 dir("Vaques.Tests") {
-                    sh "dotnet.exe test"
+                    bat "dotnet test"
                 }
             }
         }
