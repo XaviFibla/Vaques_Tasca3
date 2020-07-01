@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage ('compilar') {
             steps {
-                echo('Compilant...')
-                dir('Vaques.Tests') {
-                    sh 'dotnet build'
+                echo "Compilant..."
+                dir("Vaques.Tests") {
+                    sh "dotnet.exe build"
                 }
             }
         }
         stage('test') {
             steps {
-                echo 'Testing...'                
-                dir('Vaques.Tests') {
-                    sh 'dotnet test'
+                echo "Testing..."                
+                dir("Vaques.Tests") {
+                    sh "dotnet.exe test"
                 }
             }
         }
