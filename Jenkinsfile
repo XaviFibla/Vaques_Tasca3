@@ -1,10 +1,11 @@
 pipeline {
     agent any
     stages{
-        stage("compilar"){
+        stage("test"){
             steps{
-                echo "Compilant"
-            }
+                echo "Test..."
+                dir(Vaques.Tests) dotnet test
+            } 
         }
     }
 }
