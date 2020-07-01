@@ -1,10 +1,12 @@
 pipeline {
     agent any
-    stages{
+    stages {
         stage("test"){
-            steps{
-                echo "Test..."
-                dir("Vaques.Tests") dotnet test
+            steps {
+                echo "Testing..."
+                dir("Vaques.Tests") {
+                    sh "dotnet test"
+                }
             } 
         }
     }
