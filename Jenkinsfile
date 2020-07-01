@@ -4,7 +4,7 @@ pipeline {
         stage("test"){
             steps{
                 echo "Test..."
-                dir(Vaques.Tests) dotnet test
+                dir("Vaques.Tests") dotnet test
             } 
         }
     }
