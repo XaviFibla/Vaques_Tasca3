@@ -144,7 +144,7 @@ namespace Vaques.Tests
         public void Calcular_Litres_Camio()
         {
             // arrange
-            var raca = new Mock<Raca>("Vaca lolat", 0);
+            var raca = new Mock<Raca>("Vaca lola", 0);
             raca.Setup(r => r.LitresPerKg).Returns(200);
 
             var vaca_1 = new Vaca("Vaca 1", 200, raca.Object);            
