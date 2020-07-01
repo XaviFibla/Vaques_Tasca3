@@ -1,19 +1,21 @@
 pipeline {
     agent any
     stages {
-        stage ("compilar"){
-            echo("Compilant...")
-              dir("Vaques.Tests") {
-                    sh "dotnet build"
-                }
-        }
-        stage("test"){
+        stage ('compilar') {
             steps {
-                echo "Testing..."
-                dir("Vaques.Tests") {
-                    sh "dotnet test"
+                echo('Compilant...')
+                dir('Vaques.Tests') {
+                    sh 'dotnet build'
                 }
-            } 
+            }
+        }
+        stage('test') {
+            steps {
+                echo 'Testing...'                
+                dir('Vaques.Tests') {
+                    sh 'dotnet test'
+                }
+            }
         }
     }
 }
