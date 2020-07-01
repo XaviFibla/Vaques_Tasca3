@@ -18,4 +18,14 @@ pipeline {
             }
         }
     }
+     post {
+       // only triggered when blue or green sign
+       success {
+           slackSend (color: '#00FF00', message: "SUCCESSFUL: Job")
+       }
+       // triggered when red sign
+       failure {
+             slackSend (color: '#FF0000', message: "FAILED: Job")
+       } 
+    }
 }
